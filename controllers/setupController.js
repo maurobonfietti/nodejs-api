@@ -40,4 +40,10 @@ module.exports = function(server, restify, restifyValidator) {
     }
     return next();
   });
+
+  server.use(restifyPlugins.throttle({
+    rate: 1,
+    burst: 2,
+    xff: true,
+  }));
 }
