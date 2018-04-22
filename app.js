@@ -7,8 +7,9 @@ const server = restify.createServer({
 
 var setupController = require('./controllers/setupController');
 var userController = require('./controllers/userController');
+var restifyValidator = require('restify-validator');
 
-setupController(server, restify);
+setupController(server, restify, restifyValidator);
 userController(server);
 
 server.listen(8080, function () {

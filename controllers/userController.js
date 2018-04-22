@@ -10,6 +10,11 @@ module.exports = function(server) {
     });
 
     server.get("/user/:id", function(req, res, next) {
+      req.assert('id', 'Id is required and must be numeric').notEmpty().isInt();
+      var errors = req.validationErrors();
+      if (errors) {
+        return helpers.failure(res, next, errors[0], 400);
+      }
       if (typeof(users[req.params.id]) === 'undefined') {
         return helpers.failure(res, next, 'The specified user could not be found in the database', 404);
       }
