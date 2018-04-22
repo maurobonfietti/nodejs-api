@@ -48,32 +48,51 @@ module.exports = function(server) {
     });
 
     server.put("/user/:id", function(req, res, next) {
-      req.assert('id', 'Id is required and must be numeric').notEmpty().isInt();
+      req.assert('id', 'Id is required').notEmpty();
       var errors = req.validationErrors();
       if (errors) {
         return helpers.failure(res, next, errors[0], 400);
       }
-      if (typeof(users[req.params.id]) === 'undefined') {
-        return helpers.failure(res, next, 'The specified user could not be found in the database', 404);
-      }
-      var user = users[parseInt(req.params.id)];
-      var updates = req.body;
-      for (var field in updates) {
-        user[field] = updates[field];
-      }
-      helpers.success(res, next, user);
+      UserModel.findOne({ _id: req.params.id}, function (err, user) {
+        if (err) {
+          return helpers.failure(res, next, 'Error fetching user from the database', 400);
+        }
+        if (user === null) {
+          return helpers.failure(res, next, 'The specified user could not be found in the database', 404);
+        }
+        var updates = req.body;
+        delete updates.id;
+        for (var field in updates) {
+          user[field] = updates[field];
+        }
+        user.save(function (err) {
+          if (err) {
+            return helpers.failure(res, next, 'Error saving user to the database', 400);
+          }
+          helpers.success(res, next, user);
+        });
+      });
     });
 
     server.del("/user/:id", function(req, res, next) {
-      req.assert('id', 'Id is required and must be numeric').notEmpty().isInt();
+      req.assert('id', 'Id is required').notEmpty();
       var errors = req.validationErrors();
       if (errors) {
         return helpers.failure(res, next, errors[0], 400);
       }
-      if (typeof(users[req.params.id]) === 'undefined') {
-        return helpers.failure(res, next, 'The specified user could not be found in the database', 404);
-      }
-      delete users[parseInt(req.params.id)];
-    	helpers.success(res, next, []);
+      UserModel.findOne({ _id: req.params.id}, function (err, user) {
+        if (err) {
+          return helpers.failure(res, next, 'Error fetching user from the database', 400);
+        }
+        if (user === null) {
+          return helpers.failure(res, next, 'The specified user could not be found in the database', 404);
+        }
+        user.remove(function (err) {
+          if (err) {
+            return helpers.failure(res, next, 'Error removing user from to the database', 400);
+          }
+          helpers.success(res, next, user);
+        });
+      });
     });
 }
