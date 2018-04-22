@@ -1,7 +1,7 @@
 var restify = require('restify');
 
 const server = restify.createServer({
-  name: 'myapp',
+  name: 'NodeJS API',
   version: '1.0.0'
 });
 
@@ -15,6 +15,7 @@ const mongoose = require('mongoose');
 mongoose.connect(config.getMongoConnection());
 
 setupController(server, restify, restifyValidator);
+
 userController(server);
 
 server.listen(8080, function () {
