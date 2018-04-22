@@ -40,7 +40,19 @@ server.post("/user", function(req, res, next) {
 	users[user.id] = user;
 	res.setHeader('content-type', 'application/json');
 	res.writeHead(200);
-	res.end(JSON.stringify(users));
+	res.end(JSON.stringify(user));
+	return next();
+});
+
+server.put("/user/:id", function(req, res, next) {
+  var user = users[parseInt(req.params.id)];
+  var updates = req.body;
+  for (var field in updates) {
+    user[field] = updates[field];
+  }
+	res.setHeader('content-type', 'application/json');
+	res.writeHead(200);
+	res.end(JSON.stringify(user));
 	return next();
 });
 
