@@ -56,6 +56,14 @@ server.put("/user/:id", function(req, res, next) {
 	return next();
 });
 
+server.del("/user/:id", function(req, res, next) {
+  delete users[parseInt(req.params.id)];
+	res.setHeader('content-type', 'application/json');
+	res.writeHead(204);
+	res.end(JSON.stringify(true));
+	return next();
+});
+
 server.get('/test', function (req, res, next) {
   res.setHeader('content-type', 'application/json');
   res.writeHead(201);
