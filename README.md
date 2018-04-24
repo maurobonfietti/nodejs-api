@@ -2,7 +2,7 @@
 
 A quick and simple NodeJS/MongoDB/Restify REST API.
 
-## Check it out:
+## Download:
 ```
 git clone https://github.com/maurobonfietti/nodejs-api.git
 cd nodejs-api/
@@ -15,6 +15,8 @@ node app.js
 npx nodemon
 ```
 
-## Get the NodeJS API example at: http://[::]:8080/
+## Check it out:
 
-Enjoy!
+Get the NodeJS API example at: http://[::]:8080/
+
+### Enjoy!
