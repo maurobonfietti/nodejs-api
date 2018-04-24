@@ -3,6 +3,10 @@ var UserModel = require('../models/UserModel');
 
 module.exports = function (server) {
     server.get("/", function (req, res, next) {
+        helpers.success(res, next, 'Welcome!');
+    });
+
+    server.get("/user", function (req, res, next) {
         UserModel.find({}, function (err, users) {
             helpers.success(res, next, users);
         });
