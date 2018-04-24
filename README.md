@@ -11,8 +11,8 @@ npm install
 # Start API using node.
 node app.js
 
-# or Start API using nodemon :-)
+# or Start API using nodemon.
 npx nodemon
 ```
 
-Enjoy!
+Enjoy the NodeJS API example at: http://[::]:8080/ ;-)
