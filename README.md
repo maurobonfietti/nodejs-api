@@ -1,9 +1,9 @@
-# nodejs-api
+# NodeJS API
 
 A quick and simple NodeJS/MongoDB/Restify REST API.
 
 Check it out:
-`
+```
 git clone https://github.com/maurobonfietti/nodejs-api.git
 cd nodejs-api/
 npm install
@@ -13,6 +13,6 @@ node app.js
 
 # or Start API using nodemon :-)
 npx nodemon
-`
+```
 
 Enjoy!
