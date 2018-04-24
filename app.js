@@ -1,8 +1,8 @@
 var restify = require('restify');
 
 const server = restify.createServer({
-  name: 'NodeJS API',
-  version: '1.0.0'
+    name: 'NodeJS API',
+    version: '1.0.0'
 });
 
 var setupController = require('./controllers/setupController');
@@ -19,5 +19,5 @@ setupController(server, restify, restifyValidator);
 userController(server);
 
 server.listen(8080, function () {
-  console.log('%s listening at %s', server.name, server.url);
+    console.log('%s listening at %s', server.name, server.url);
 });
