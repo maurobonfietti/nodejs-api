@@ -4,22 +4,22 @@ var UserModel = require('../models/UserModel');
 module.exports = function (server) {
     server.get("/", function (req, res, next) {
         var response = {
-            'message': 'Welcome NodeJS API!',
-            'version': '0.1.0',
+            'message': 'Welcome to NodeJS API!',
+            'version': '1.0.0',
             'get-all-users': {
-                'GET': 'http://localhost:8080/user'
+                'GET': '/user'
             },
             'get-one-user': {
-                'GET': 'http://localhost:8080/user/5adced8975acfd076c57f9b1'
+                'GET': '/user/5adced8975acfd076c57f9b1'
             },
             'create-user': {
-                'POST': 'http://localhost:8080/user'
+                'POST': '/user'
             },
             'update-user': {
-                'PUT': 'http://localhost:8080/user/5adcf277b74baa07d2e3a120'
+                'PUT': '/user/5adcf277b74baa07d2e3a120'
             },
             'delete-user': {
-                'DELETE': 'http://localhost:8080/user/5adced8d75acfd076c57f9b3'
+                'DELETE': '/user/5adced8d75acfd076c57f9b3'
             }
         };
         helpers.success(res, next, response);
