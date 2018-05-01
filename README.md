@@ -21,8 +21,8 @@ npx nodemon
 
 ## Check it out:
 
-View online demo at: https://rest-api-node-js.herokuapp.com/
+View [online demo](https://rest-api-node-js.herokuapp.com/).
 
-(or in your local: http://localhost:8080/ )
+(or at your [localhost](http://localhost:8080)).
 
 ### Enjoy ;-)
