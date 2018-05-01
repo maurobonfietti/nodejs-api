@@ -10,17 +10,19 @@ cd nodejs-api/
 npm install
 ```
 
-## Start:
+## Start API:
 
-Start the REST API using node or nodemon:
+Start the REST API using:
 ```
-node app.js
+npm start
 # or
 npx nodemon
 ```
 
 ## Check it out:
 
-View example at: http://localhost:8080/
+View online demo at: https://rest-api-node-js.herokuapp.com/
 
-### Enjoy this NodeJS API ;-)
+(or in your local: http://localhost:8080/ )
+
+### Enjoy ;-)
