@@ -9,8 +9,8 @@ function _respond(res, next, status, data, http_code) {
     return next();
 }
 
-module.exports.success = function (res, next, data) {
-    _respond(res, next, 'success', data, 200);
+module.exports.success = function (res, next, data, http_code) {
+    _respond(res, next, 'success', data, http_code);
 };
 
 module.exports.failure = function (res, next, data, http_code) {

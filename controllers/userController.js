@@ -5,7 +5,7 @@ module.exports = function (server) {
     server.get("/", function (req, res, next) {
         var response = {
             'message': 'Welcome to NodeJS API!',
-            'version': '1.0.0',
+            'version': '1.0.1',
             'get-all-users': {
                 'GET': '/user'
             },
@@ -22,12 +22,12 @@ module.exports = function (server) {
                 'DELETE': '/user/5adced8d75acfd076c57f9b3'
             }
         };
-        helpers.success(res, next, response);
+        helpers.success(res, next, response, 200);
     });
 
     server.get("/user", function (req, res, next) {
         UserModel.find({}, function (err, users) {
-            helpers.success(res, next, users);
+            helpers.success(res, next, users, 200);
         });
     });
 
@@ -44,7 +44,7 @@ module.exports = function (server) {
             if (user === null) {
                 return helpers.failure(res, next, 'The specified user could not be found in the database', 404);
             }
-            helpers.success(res, next, user);
+            helpers.success(res, next, user, 200);
         });
     });
 
@@ -66,7 +66,7 @@ module.exports = function (server) {
             if (err) {
                 return helpers.failure(res, next, 'Error saving user to the database', 400);
             }
-            helpers.success(res, next, user);
+            helpers.success(res, next, user, 201);
         });
     });
 
@@ -92,7 +92,7 @@ module.exports = function (server) {
                 if (err) {
                     return helpers.failure(res, next, 'Error saving user to the database', 400);
                 }
-                helpers.success(res, next, user);
+                helpers.success(res, next, user, 200);
             });
         });
     });
@@ -114,7 +114,7 @@ module.exports = function (server) {
                 if (err) {
                     return helpers.failure(res, next, 'Error removing user from to the database', 400);
                 }
-                helpers.success(res, next, user);
+                helpers.success(res, next, user, 204);
             });
         });
     });
