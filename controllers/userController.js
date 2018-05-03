@@ -10,13 +10,13 @@ module.exports = function (server) {
                 'GET': '/user'
             },
             'get-one-user': {
-                'GET': '/user/5adced8975acfd076c57f9b1'
+                'GET': '/user/5aeb9f91659d9896dd44243d'
             },
             'create-user': {
                 'POST': '/user'
             },
             'update-user': {
-                'PUT': '/user/5adcf277b74baa07d2e3a120'
+                'PUT': '/user/5aeb9fbdc6173a9732c32559'
             },
             'delete-user': {
                 'DELETE': '/user/5adced8d75acfd076c57f9b3'
@@ -32,18 +32,15 @@ module.exports = function (server) {
     });
 
     server.get("/user/:id", function (req, res, next) {
-        req.assert('id', 'Id is required').notEmpty();
+        req.assert('id', 'User id is required').notEmpty();
         var errors = req.validationErrors();
         if (errors) {
             return helpers.failure(res, next, errors[0], 400);
         }
         UserModel.findOne({_id: req.params.id}, function (err, user) {
-            if (err) {
-                return helpers.failure(res, next, 'Error fetching user from the database', 400);
-            }
-            if (user === null) {
-                return helpers.failure(res, next, 'The specified user could not be found in the database', 404);
-            }
+            if (err) return helpers.failure(res, next, 'Error fetching user from the database', 400);
+            if (user === null) return helpers.failure(res, next, 'The specified user could not be found in the database', 404);
+
             helpers.success(res, next, user, 200);
         });
     });
