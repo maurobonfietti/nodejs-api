@@ -23,6 +23,6 @@ npx nodemon
 
 View [online demo](https://rest-api-node-js.herokuapp.com/).
 
-(or at your [localhost](http://localhost:8080)).
+or at your [localhost](http://localhost:8080).
 
 ### Enjoy ;-)

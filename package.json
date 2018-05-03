@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "NodeJS API",
   "author": "Mauro Bonfietti",
-  "license": "ISC",
+  "license": "MIT",
   "main": "app.js",
   "engines": {
     "node": "9.5.0",
