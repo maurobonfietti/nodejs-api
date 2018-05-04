@@ -2,7 +2,7 @@ var restify = require('restify');
 
 const server = restify.createServer({
     name: 'NodeJS API',
-    version: '1.0.0'
+    version: '1.0.1'
 });
 
 var setupController = require('./controllers/setupController');
