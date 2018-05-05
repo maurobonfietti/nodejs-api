@@ -36,21 +36,7 @@ module.exports = function (server) {
         var errors = req.validationErrors();
         if (errors) return helpers.failure(res, next, errors[0], 400);
 
-        UserModel.findOne({_id: req.params.id}, function (err, user) {
-            if (err) return helpers.failure(res, next, 'Error fetching user from the database', 400);
-            if (user === null) return helpers.failure(res, next, 'The specified user could not be found in the database', 404);
-
-            var updates = req.body;
-            delete updates.id;
-            for (var field in updates) {
-                user[field] = updates[field];
-            }
-            user.save(function (err) {
-                if (err) return helpers.failure(res, next, 'Error saving user to the database', 400);
-
-                helpers.success(res, next, user, 200);
-            });
-        });
+        UserServices.update(req, res, next);
     });
 
     server.del("/user/:id", function (req, res, next) {
