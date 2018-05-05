@@ -30,28 +30,17 @@ module.exports.getAllUsers = function (req, res, next) {
     });
 };
 
+module.exports.getOneUser = function (req, res, next, id) {
+    UserModel.findOne({_id: id}, function (err, user) {
+        if (err) return helpers.failure(res, next, 'Error fetching user from the database', 400);
+        if (user === null) return helpers.failure(res, next, 'The specified user could not be found in the database', 404);
+
+        helpers.success(res, next, user, 200);
+    });
+};
+
 /*
 module.exports = function (server) {
-
-
-    server.get("/user", function (req, res, next) {
-        UserModel.find({}, function (err, users) {
-            helpers.success(res, next, users, 200);
-        });
-    });
-
-    server.get("/user/:id", function (req, res, next) {
-        req.assert('id', 'User id is required').notEmpty();
-        var errors = req.validationErrors();
-        if (errors) return helpers.failure(res, next, errors[0], 400);
-
-        UserModel.findOne({_id: req.params.id}, function (err, user) {
-            if (err) return helpers.failure(res, next, 'Error fetching user from the database', 400);
-            if (user === null) return helpers.failure(res, next, 'The specified user could not be found in the database', 404);
-
-            helpers.success(res, next, user, 200);
-        });
-    });
 
     server.post("/user", function (req, res, next) {
         req.assert('first_name', 'First name is required').notEmpty();
