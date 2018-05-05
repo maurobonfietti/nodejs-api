@@ -39,6 +39,19 @@ module.exports.getOneUser = function (req, res, next, id) {
     });
 };
 
+module.exports.create = function (req, res, next) {
+    var user = new UserModel();
+    user.first_name = req.params.first_name;
+    user.last_name = req.params.last_name;
+    user.email = req.params.email;
+    user.career = req.params.career;
+    user.save(function (err) {
+        if (err) return helpers.failure(res, next, 'Error saving user to the database', 400);
+
+        helpers.success(res, next, user, 201);
+    });
+};
+
 /*
 module.exports = function (server) {
 
