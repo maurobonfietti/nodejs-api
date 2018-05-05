@@ -6,32 +6,10 @@ var UserServices = require('../services/userServices');
 module.exports = function (server) {
     server.get("/", function (req, res, next) {
         UserServices.default(req, res, next);
-//        var response = {
-//            'message': 'Welcome to NodeJS API!',
-//            'version': '1.0.1',
-//            'get-all-users': {
-//                'GET': '/user'
-//            },
-//            'get-one-user': {
-//                'GET': '/user/5aeb9f91659d9896dd44243d'
-//            },
-//            'create-user': {
-//                'POST': '/user'
-//            },
-//            'update-user': {
-//                'PUT': '/user/5aeb9fbdc6173a9732c32559'
-//            },
-//            'delete-user': {
-//                'DELETE': '/user/5adced8d75acfd076c57f9b3'
-//            }
-//        };
-//        helpers.success(res, next, response, 200);
     });
 
     server.get("/user", function (req, res, next) {
-        UserModel.find({}, function (err, users) {
-            helpers.success(res, next, users, 200);
-        });
+        UserServices.getAllUsers(req, res, next);
     });
 
     server.get("/user/:id", function (req, res, next) {
