@@ -8,11 +8,11 @@ const server = restify.createServer({
 var setupController = require('./controllers/setupController');
 var userController = require('./controllers/userController');
 var restifyValidator = require('restify-validator');
-var config = require('./config/dbConnection');
 
 const mongoose = require('mongoose');
+const mongoDb = process.env.MONGODB_URL || 'mongodb://localhost:27017/nodejs_api';
 
-mongoose.connect(config.getMongoConnection());
+mongoose.connect(mongoDb);
 
 setupController(server, restify, restifyValidator);
 
