@@ -4,7 +4,7 @@ var UserModel = require('../models/UserModel');
 module.exports.default = function (req, res, next) {
     var response = {
         'message': 'Welcome to NodeJS API!',
-        'version': '1.0.2',
+        'version': '1.0.3',
         'get-all-users': {
             'GET': '/user'
         },
