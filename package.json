@@ -1,13 +1,12 @@
 {
   "name": "nodejs-api",
   "version": "1.0.3",
-  "description": "NodeJS API",
+  "description": "A quick and simple REST API using NodeJS/MongoDB/Restify.",
   "author": "Mauro Bonfietti",
   "license": "MIT",
   "main": "app.js",
   "engines": {
-    "node": "9.5.0",
-    "npm": "6.0.0"
+    "node": "10.x"
   },
   "scripts": {
     "start": "node app.js",

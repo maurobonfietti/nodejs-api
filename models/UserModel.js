@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
-
 const UserSchema = new Schema({
     id: ObjectId,
     first_name: String,
@@ -9,7 +7,6 @@ const UserSchema = new Schema({
     email: String,
     career: String
 });
-
 const UserModel = mongoose.model('users', UserSchema);
 
 module.exports = UserModel;

@@ -1,6 +1,4 @@
 var helpers = require('../config/helperFunctions');
-var UserModel = require('../models/UserModel');
-
 var UserServices = require('../services/userServices');
 
 module.exports = function (server) {
