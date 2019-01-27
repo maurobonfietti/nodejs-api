@@ -1,9 +1,10 @@
-# Node.js API
+# NODE JS REST API
 
-A quick and simple NodeJS/MongoDB/Restify REST API.
-This simple example allows CRUD operations to manage 'users'.
+A quick and simple NodeJS/MongoDB/Restify API.
 
-## Install:
+This example allows CRUD operations to manage your users.
+
+## Clone repo and install dependencies:
 
 ```
 git clone https://github.com/maurobonfietti/nodejs-api.git
