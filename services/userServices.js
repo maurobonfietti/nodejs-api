@@ -1,10 +1,10 @@
-var helpers = require('../config/helperFunctions');
+var helpers = require('../app/helperFunctions');
 var UserModel = require('../models/UserModel');
 
 module.exports.default = function (req, res, next) {
     var response = {
-        'message': 'Welcome to NodeJS API!',
-        'version': '1.0.3',
+        'message': 'Welcome to Node.js REST API!',
+        'version': '1.0.4',
         'get-all-users': {
             'GET': '/user'
         },

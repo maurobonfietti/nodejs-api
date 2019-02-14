@@ -1,8 +1,8 @@
 var restify = require('restify');
 const server = restify.createServer({
-    name: 'NodeJS API'
+    name: 'Node.js REST API'
 });
-var setupController = require('./controllers/setupController');
+var setupController = require('./app/setupController');
 var userController = require('./controllers/userController');
 var restifyValidator = require('restify-validator');
 const mongoose = require('mongoose');

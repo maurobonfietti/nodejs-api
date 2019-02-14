@@ -1,6 +1,6 @@
 # NODE JS REST API
 
-A quick and simple NodeJS/MongoDB/Restify API.
+A quick and simple Node.js/MongoDB/Restify API.
 
 This example allows CRUD operations to manage your users.
 

@@ -1,7 +1,7 @@
 {
   "name": "nodejs-api",
-  "version": "1.0.3",
-  "description": "A quick and simple REST API using NodeJS/MongoDB/Restify.",
+  "version": "1.0.0",
+  "description": "A quick and simple REST API using Node.js/MongoDB/Restify.",
   "author": "Mauro Bonfietti",
   "license": "MIT",
   "main": "app.js",

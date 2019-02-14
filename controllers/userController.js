@@ -1,4 +1,4 @@
-var helpers = require('../config/helperFunctions');
+var helpers = require('../app/helperFunctions');
 var UserServices = require('../services/userServices');
 
 module.exports = function (server) {
