@@ -1,13 +1,13 @@
-var helpers = require('../app/helperFunctions');
-var UserServices = require('../services/userServices');
+var helpers = require('../app/helpers');
+var userService = require('../services/user');
 
 module.exports = function (server) {
     server.get("/", function (req, res, next) {
-        UserServices.default(req, res, next);
+        userService.default(req, res, next);
     });
 
     server.get("/user", function (req, res, next) {
-        UserServices.getAllUsers(req, res, next);
+        userService.getAllUsers(req, res, next);
     });
 
     server.get("/user/:id", function (req, res, next) {
@@ -15,7 +15,7 @@ module.exports = function (server) {
         var errors = req.validationErrors();
         if (errors) return helpers.failure(res, next, errors[0], 400);
 
-        UserServices.getOneUser(req, res, next, req.params.id);
+        userService.getOneUser(req, res, next, req.params.id);
     });
 
     server.post("/user", function (req, res, next) {
@@ -26,7 +26,7 @@ module.exports = function (server) {
         var errors = req.validationErrors();
         if (errors) return helpers.failure(res, next, errors, 400);
 
-        UserServices.create(req, res, next);
+        userService.create(req, res, next);
     });
 
     server.put("/user/:id", function (req, res, next) {
@@ -34,7 +34,7 @@ module.exports = function (server) {
         var errors = req.validationErrors();
         if (errors) return helpers.failure(res, next, errors[0], 400);
 
-        UserServices.update(req, res, next);
+        userService.update(req, res, next);
     });
 
     server.del("/user/:id", function (req, res, next) {
@@ -42,6 +42,6 @@ module.exports = function (server) {
         var errors = req.validationErrors();
         if (errors) return helpers.failure(res, next, errors[0], 400);
 
-        UserServices.delete(req, res, next);
+        userService.delete(req, res, next);
     });
 };

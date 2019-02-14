@@ -1,4 +1,4 @@
-var helpers = require('../app/helperFunctions');
+var helpers = require('../app/helpers');
 var UserModel = require('../models/UserModel');
 
 module.exports.default = function (req, res, next) {
