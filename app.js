@@ -1,18 +1,16 @@
-var restify = require('restify');
-const server = restify.createServer({
-    name: 'Node.js REST API'
-});
-var setup = require('./app/setup');
-var user = require('./controllers/user');
-var restifyValidator = require('restify-validator');
+const restify = require('restify');
+const server = restify.createServer({name: 'Node.js REST API'});
+const setup = require('./app/setup');
+const user = require('./controllers/user');
+const restifyValidator = require('restify-validator');
 const mongoose = require('mongoose');
-const mongoDb = process.env.MONGODB_URL || 'mongodb://localhost:27017/nodejs_api';
+const mongoDbUrl = process.env.MONGODB_URL || 'mongodb://localhost:27017/nodejs_api';
+const port = process.env.PORT || 8080;
 
-mongoose.connect(mongoDb, { useNewUrlParser: true });
+mongoose.connect(mongoDbUrl, {useNewUrlParser: true});
 setup(server, restify, restifyValidator);
 user(server);
-var port = process.env.PORT || 8080;
-
 server.listen(port, function () {
     console.log('%s listening at %s', server.name, server.url);
+    console.log(server);
 });
